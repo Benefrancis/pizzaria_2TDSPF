@@ -21,10 +21,22 @@ public class ClienteResource {
         return repo.findAll();
     }
 
+    @GetMapping(value = "/{id}")
+    public Cliente findById(@PathVariable Long id) {
+        return repo.findById( id ).orElseThrow();
+    }
+
     @Transactional
     @PostMapping
     public Cliente save(@RequestBody Cliente cliente) {
         return repo.save( cliente );
+    }
+
+    @Transactional
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id) {
+        Cliente cliente = repo.findById( id ).get();
+        repo.delete( cliente );
     }
 
 
