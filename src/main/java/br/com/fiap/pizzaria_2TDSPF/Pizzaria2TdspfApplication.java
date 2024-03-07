@@ -11,7 +11,7 @@ public class Pizzaria2TdspfApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(Pizzaria2TdspfApplication.class, args);
+        SpringApplication.run( Pizzaria2TdspfApplication.class, args );
     }
 
     @GetMapping(value = "/")
